@@ -44,6 +44,15 @@ namespace LiveChatAPp
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 
+
+            //allow front end to acesss api
+             app.UseCors(builder =>
+           {
+               builder.AllowAnyMethod().AllowAnyHeader()
+                      .WithOrigins("http://localhost:3000")
+                      .AllowCredentials();
+           });
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
