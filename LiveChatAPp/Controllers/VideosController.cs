@@ -89,6 +89,8 @@ namespace LiveChatAPp.Controllers
            string videoID =  YoutubeHelper.GetVideoLink(URL.URL);
            Video newVideo =  YoutubeHelper.getVideoInfo(videoID);
 
+            string playername = name.name;
+
             _context.Video.Add(newVideo);
             await _context.SaveChangesAsync();
 
