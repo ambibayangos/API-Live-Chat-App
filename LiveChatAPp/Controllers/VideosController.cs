@@ -19,10 +19,6 @@ namespace LiveChatAPp.Controllers
            public string URL { get; set; }
         }
 
-         public class PlayerBuilder
-        {
-           public string name { get; set; }
-        }
 
         private readonly liveChatAppContext _context;
 
