@@ -19,11 +19,7 @@ namespace LiveChatAPp.Controllers
            public string URL { get; set; }
         }
 
-        public class PlayerBuilder
-        {
-           public string name { get; set; }
-        }
-
+        
         private readonly liveChatAppContext _context;
 
         public VideosController(liveChatAppContext context)
@@ -84,7 +80,7 @@ namespace LiveChatAPp.Controllers
 
         // POST: api/Videos
         [HttpPost]
-        public async Task<ActionResult<Video>> PostVideo(VideoBuilder URL , PlayerBuilder name )
+        public async Task<ActionResult<Video>> PostVideo(VideoBuilder URL )
         {
            string videoID =  YoutubeHelper.GetVideoLink(URL.URL);
            Video newVideo =  YoutubeHelper.getVideoInfo(videoID);
