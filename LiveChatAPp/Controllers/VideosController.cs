@@ -92,6 +92,8 @@ namespace LiveChatAPp.Controllers
             _context.Video.Add(newVideo);
             await _context.SaveChangesAsync();
 
+            PlayersController playerController = new PlayersController(_context);
+
             Player video = new Player
             {
                 PlayerName = name.name,
