@@ -84,7 +84,7 @@ namespace LiveChatAPp.Controllers
 
         // POST: api/Videos
         [HttpPost]
-        public async Task<ActionResult<Video>> PostVideo(VideoBuilder URL )
+        public async Task<ActionResult<Video>> PostVideo(VideoBuilder URL , PlayerBuilder name )
         {
            string videoID =  YoutubeHelper.GetVideoLink(URL.URL);
            Video newVideo =  YoutubeHelper.getVideoInfo(videoID);
