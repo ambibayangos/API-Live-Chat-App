@@ -13,9 +13,10 @@ namespace LiveChatAPp.Controllers
     [ApiController]
     public class PlayersController : ControllerBase
     {
-         public class PlayerBuilder
+
+        public class PlayerBuilder
         {
-           public string name { get; set; }
+            public string name { get; set; }
         }
 
         private readonly liveChatAppContext _context;
@@ -80,9 +81,11 @@ namespace LiveChatAPp.Controllers
         [HttpPost]
         public async Task<ActionResult<Player>> PostPlayer(PlayerBuilder name)
         {
-            Player newPlayer = new Player();
-            newPlayer.PlayerName = name.name;
-            newPlayer.Rank = 0;
+            Player newPlayer = new Player
+            {
+                PlayerName = name.name,
+                Rank = 0
+            };
 
             _context.Player.Add(newPlayer);
             await _context.SaveChangesAsync();
