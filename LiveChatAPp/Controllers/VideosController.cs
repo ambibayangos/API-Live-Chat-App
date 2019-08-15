@@ -84,12 +84,12 @@ namespace LiveChatAPp.Controllers
 
         // POST: api/Videos
         [HttpPost]
-        public async Task<ActionResult<Video , Player>> PostVideo(VideoBuilder URL , PlayerBuilder name)
+        public async Task<ActionResult<Video , Player>> PostVideo(VideoBuilder URL)
         {
            string videoID =  YoutubeHelper.GetVideoLink(URL.URL);
            Video newVideo =  YoutubeHelper.getVideoInfo(videoID);
 
-            string playername = name.name;
+           
 
             _context.Video.Add(newVideo);
             await _context.SaveChangesAsync();
