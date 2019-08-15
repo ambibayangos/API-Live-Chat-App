@@ -51,9 +51,6 @@ namespace LiveChatAPp.Helper
                 ThumbnailUrl = thumbNailUrl
             };
 
-
-
-
             return video;
         }
     }
