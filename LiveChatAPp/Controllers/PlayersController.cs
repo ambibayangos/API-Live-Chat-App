@@ -13,6 +13,11 @@ namespace LiveChatAPp.Controllers
     [ApiController]
     public class PlayersController : ControllerBase
     {
+         public class PlayerBuilder
+        {
+           public string name { get; set; }
+        }
+
         private readonly liveChatAppContext _context;
 
         public PlayersController(liveChatAppContext context)
@@ -73,12 +78,19 @@ namespace LiveChatAPp.Controllers
 
         // POST: api/Players
         [HttpPost]
-        public async Task<ActionResult<Player>> PostPlayer(Player player)
+        public async Task<ActionResult<Player>> PostPlayer(PlayerBuilder person)
         {
-            _context.Player.Add(player);
+
+             Video newPlayer = new Player
+            {
+                PlayerName = person.name,
+                Rank = 0
+            };
+
+            _context.Player.Add(newPlayer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPlayer", new { id = player.Playerid }, player);
+            return CreatedAtAction("GetPlayer", new { id = newPlayer.Playerid }, newPlayer);
         }
 
         // DELETE: api/Players/5
