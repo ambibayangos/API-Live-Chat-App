@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace LiveChatAPp.Model
 {
@@ -30,5 +31,27 @@ namespace LiveChatAPp.Model
 
         [InverseProperty("Video")]
         public virtual ICollection<Player> Player { get; set; }
+    }
+
+    [DataContract]
+    public class VideoDTO
+    {
+        [DataMember]
+        public int VideoId { get; set; }
+
+        [DataMember]
+        public string VideoTitle { get; set; }
+
+        [DataMember]
+        public int VideoLength { get; set; }
+
+        [DataMember]
+        public string WebUrl { get; set; }
+
+        [DataMember]
+        public string ThumbnailUrl { get; set; }
+
+        [DataMember]
+        public bool IsFavourite { get; set; }
     }
 }
